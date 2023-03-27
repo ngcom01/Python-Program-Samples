@@ -1,0 +1,169 @@
+##Exercise 4.5 Question 1
+
+length = float(input("Enter a lenght in centimeter: "))
+if(length < 0):
+    print( "Entry is invalid")
+elif length / 2.54:
+    l = length / 2.54
+    print ("Lenght in inches = ", l)
+---------
+##Exercise 4.5 Question 2
+
+temperature= float(input("Enter temperature: "))
+print ("Which units you enter fahrenheit or celsius: ")
+print ("Enter 0 for celsius: ")
+print ("Enter 1 for fahrenheit: ")
+
+num = int(input())
+
+if num == 0:
+    celsius = (temperature - 32 / 1.8)
+    print ("Temperature: ", temperature, " in celsius: ", celsius)
+
+elif num == 1:
+    fahrenheit = (temperature * 1.8) +32
+    print ("Temperature: ", temperature, "in fahrenheit: ", fahrenheit)
+-----------
+##Exercise 4.5 Question 3
+
+temp = float(input ("Enter temperature in celsius: "))
+
+if  temp< -273.15:
+    print ("Temperature is invalid")
+
+elif temp == -273.15:
+    print ("Temperature is absolute 0")
+
+elif temp > -273.15 and temp < 0:
+    print ("Temperature is below freezing")
+
+elif temp == 0:
+    print ("Temperature is at the freezing point")
+
+elif temp > 0 and temp < 100:
+    print ("Temperature is at the normal range")
+
+elif temp == 100:
+    print ("Temperature is at the boiling point")
+
+else:
+    print("Temperature is above the boiling point")
+------------
+##Exercise 4.5 Question 4
+
+credit = int(input ("Enter number of credits taken: "))
+
+if credit <= 23:
+    print ("Student is a freshman")
+
+elif credit > 24 and credit < 53:
+    print ("Student is a sophmore")
+
+elif credit > 54 and credit < 83:
+    print ("Student is a junior")
+
+elif credit >= 83:
+    print ("Student is a senior")
+---------
+##Exercise 4.5 Question 5
+
+num = int(input("Enter a number: "))
+divisors_sum = 0
+
+# Loop through numbers from 1 to num (inclusive)
+for i in range(1, num+1):
+    # if i divides numbers num evenly, add it to the sum of divisors
+    if num % i == 0:
+        divisors_sum += i
+print("The sum of divisors of" , num, "is" , divisors_sum)
+--------------
+###Exercise 4.5 Question 6
+
+def is_perfect(num):
+    sum_divisors = 0
+    for i in range(1, num):
+        if num % i == 0:
+            sum_divisors += i
+    return sum_divisors == num
+
+perfect_numbers = []
+for num in range(1, 10000):
+    if is_perfect(num):
+        perfect_numbers.append(num)
+print(perfect_numbers)
+---------------
+##Exercise 4.5 Question 7
+
+def is_squarefree(num):
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % (i ** 2) == 0:
+            return False
+    return True
+
+num = int(input("Enter an integer: "))
+if is_squarefree(num):
+    print(num, "is squarefree")
+else:
+    print(num, "is not squarefree")
+-------------------
+# ##Exercise 4.5 Question 8 'write a program that swaps the values of three variables x, y, and z, 
+# so that x gets the value of y, y gets the value of z, and z gets the value of x.'
+
+x = int(input("Enter the value of x: "))
+y = int(input("Enter the value of y: "))
+z = int(input("Enter the value of z: "))
+
+print("Before swapping: x = ", x, ", y = ", y, ", z =", z)
+
+temp = x
+x = y
+y = z 
+z = temp
+
+print("After swapping: x = ", x, ", y = ", y, ", z =", z)
+-----------------
+##Exercise 4.5 Question 9
+
+def count_integers():
+    count = 0
+    for i in range(1, 1001):
+        if i**(1/2) != int(i**(1/2)) and i**(1/3) != int(i**(1/3)) and i**(1/5) != int(i**(1/5)):
+            count += 1
+    return count
+print(count_integers())
+----------------------
+###Exercise 4.5 Question 10 'Ask the user to enter 10 test scores. write a program to do the following:'
+
+##Define a list to hold the test scores
+scores = []
+
+##Ask the user to enter 10 scores
+for i in range (10):
+    score = int(input(f"Enter score {i+1}: "))
+    
+# Check if the score is greater than 100
+    if score > 100:
+        print("Warning: Score is greater than 100")
+    
+    scores.append(score)
+
+#Sort the score ia ascending order
+scores.sort()
+
+## (a) Print out the highest and lowest scores
+print("Highest score :" , scores [-1])
+print("Lowest score :" , scores [0])
+
+##(b) Calculate and print out the average of the scores
+average = sum(scores) / len(scores)
+print("Average score:", average)
+
+##(c) Print out the second highest score
+print("Second highest score: ", scores [-2])
+
+##(d)
+
+##(e) Drop the two lowest scores and print out the average of the rest
+dropped_scores = scores [2:]
+dropped_average = sum(dropped_scores) / len(dropped_scores)
+print ("Average score (after dropping two lowest): ", dropped_average)

@@ -1,0 +1,194 @@
+##Exercise 3.8:Question 1'write a program that generates and prints 50 random integers each between 3 and 6'
+
+mylist = [] ##- 
+
+for i in range(0,50):
+    x = random.randint(3,6)
+##    mylist.append(x)
+
+##print(mylist) ## - To print the result as an array of integers between 3 and 6.
+print(x) ## - To print single integer between 3 and 6
+----------
+##Exercise 3.8:Question 2 (Option 1) 'write a program that generates a random number x, between 1 and 50, a random number y 
+## between 2 and 5 and computes x^y'
+import random
+
+x = random.randint(0,50)
+for i in range(0, 50):
+    y = random.randint(2,5)
+print(x)
+print(y)
+
+k = x**y
+
+print(k)
+-----------
+##Exercise 3.8:Question 2 (Option 2)'write a program that generates a random number x, between 1 and 50, a random number y 
+## between 2 and 5 and computes x^y'
+import random 
+
+x = random.randint(1, 50)
+y = random.randint(2, 5)
+z =pow(x, y)
+
+print(x, " ", y, " ",z)
+----------
+##Exercise 3.8:Question 3 'write a program that generates a random number between 1 and 10 and prints your name that many times'
+
+import random
+x = random.randint(1,10)
+for i in range (x):
+    print("Christian")
+print("A random number from range is: ", x)
+----------
+##Exercise 3.8:Question 4 'write a program that generates a random decimal number between 1 and 10 with two decimal places
+# of accuracy. Examples are 1.23, 3.45, 9.80 and 5.00' 
+
+import random
+
+x =round(random.uniform(1,10), 2)
+print(x)
+-----------
+##Exercise 3.8:Question 5 'write a program that generates 50 random number such that the first number is between 1 and 2
+## the second is between 1 and 3, the third is between 1 and 4, .... and the last is between 1 and 51.
+
+import random
+
+x = 2
+while x <= 51:
+    r = random.randint(1,x)
+    x = x+1
+    print (r)
+-----------
+##Exercise 3.8:Question 6 'write a program that ask the user to enter two numbers, x and y, and computes (x - y)/(x + y). 
+
+##using a float to define the type of number:
+x = float(input("Enter the value of x: "))
+y = float(input("Enter the value of y: "))
+
+##using an integer to define the type of number:
+#x = int(input("Enter the value of x: "))
+#y = int(input("Enter the value of y: "))
+
+temp1 = x - y
+temp2 = x + y
+ 
+z = temp1/temp2
+
+print("temp1 = ", temp1, ", temp2 = ", temp2, ", z =", z)
+---------
+##Exercise 3.8:Question 8 'Write a program that asks the user for a number of seconds and prints out how many minutes and 
+##seconds that is.For instance, 200 seconds are printed as 3 mins and 20 seconds.[Hint. use // and % to get minutes and seconds]
+
+#Explanation: seconds=int(input("Enter the number of seconds"))
+#Enter the value of the seconds.minute=int(seconds/60)
+#change the value of seconds in minute. 
+#print("The minute is "+str(minute)+" and the second is "+str(seconds))# It is used to print the value of minute and the seconds.
+
+totalSecs = int(input("Enter the number of seconds: "))
+
+mins = totalSecs // 60
+secs = totalSecs % 60
+
+print("The minute is "+str(mins)+" and the second is "+str(secs))
+print(mins, "minutes and", secs, "seconds")
+-----------
+##Exercise 3.8:Question 9 'write a program that ask the user for an hour between 1 and 12 and for how many hours in the 
+##future they want to go. Print out what the hour will be that many hours into the future.
+
+hr = int(input("Enter hour: "))
+ampm = int(input("Enter am(1) and pm(2): "))
+
+delay = int(input("Enter how many hours ahead: "))
+f = ' '
+nh = 0
+if ampm == 1:
+    nh = hr + delay
+    if int(nh) > 12:
+        f = 'pm'
+        nh = nh % 12
+
+    else:
+        f = 'am'
+        nh = nh
+
+if ampm == 2:
+        nh = hr + delay
+        if int(nh) > 12:
+            f = 'am'
+            nh = nh % 12
+
+        else:
+            f = 'pm'
+            nh = nh
+print("New hour: {} {} ".format(nh, f))
+---------
+##Exercise 3.8:Question 11'write a program that ask the user for a weight in kilograms. The program should convert it to pounds,
+## printing the answer rounded to the nearest tenth of a pound.'
+
+x = float(input("Enter your weight in Kilograms x: ")) 
+pounds = round(x * 2.2046, 2)
+print("Your weight in Pounds","is",pounds)
+---------
+##Exercise 3.8:Question 12'write a program that ask the user for a number and prints out the factorial of that number.'
+
+num = int(input("Enter a number: "))
+
+factorial = 1
+
+# check if the number is negative, positive or zero
+if num < 0:
+   print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+   print("The factorial of 0 is 1")
+else:
+   for i in range(1,num + 1):
+       factorial = factorial*i
+   print("The factorial of",num,"is",factorial)
+----------
+##Exercise 3.8:Question 13'write a program that ask the user for a number and prints out the sine, cosine and tanget 
+##of that number.' 
+
+#A demo of cos() function
+ 
+#from math import cos
+#x = int(input("Enter the number x: ")) 
+#cos_x = round(cos(x),2)
+#print ("The cosine of x = ",  cos_x)
+
+#A demo of sin() function
+#from math import sin
+#x = int(input("Enter the number x: ")) 
+#sin_x = round(sin(x),2)
+#print ("The sine of x = ",  sin_x)
+
+#A demo of tan() function
+from math import tan
+#x = int(input("Enter the number x: ")) 
+#tan_x = round(tan(x),2)
+#print ("The tanget of x = ",  tan_x)
+
+#Combination of all programs into one
+from math import sin
+from math import cos
+from math import tan
+x = int(input("Enter the number x: ")) 
+y = int(input("Enter the number y: "))
+z = int(input("Enter the number z: "))
+
+sin_x = round(sin(x),2)
+cos_y = round(cos(y),2)
+tan_z = round(tan(z),2)
+
+print ("The sine of x = ",  sin_x)
+print ("The cosine of y = ",  cos_y)
+print ("The tanget of z = ",  tan_z)
+----------
+#Exercise 3.8:Quest 14'write a program that ask the user to enter an angle in degrees and prints out the sine of that number.' 
+
+import math
+
+x = int(input("Enter an angle in degrees: ")) 
+sine_x = math.sin(math.radians(x))
+sine_x = round(sine_x,2) 
+print ("The sine of x = ",sine_x )
